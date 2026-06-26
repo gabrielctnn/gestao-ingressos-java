@@ -90,6 +90,11 @@ public class Main {
         TipoIngresso tipoIngresso = TipoIngresso.valueOf(entradaUsuario);
         Convidado convidadoNovo = new Convidado(nome, cpf, idade, dataCadastro, tipoIngresso);
         listaDeConvidados.put(cpf, convidadoNovo);
+
+        System.out.println("");
+        System.out.println(" ======== Usúario '"+ convidadoNovo.getNome() + "' adicionado!  ======== ");
+
+
 }
     public static void buscaConvidado(){
         Scanner scan = new Scanner(System.in);
@@ -107,7 +112,7 @@ public class Main {
             } else {
                 // Faz a busca do cpf digitado e devolve se existe na lista ou nao
                 if(listaDeConvidados.containsKey(cpfBuscado)){
-                    System.out.println("O convidado (Portador do CPF: " + listaDeConvidados.get(cpfBuscado).getCpf() + ")" + "está na lista");
+                    System.out.println(" ======== O convidado (Portador do CPF: " + listaDeConvidados.get(cpfBuscado).getCpf() + ")" + "está na lista ======== ");
                     System.out.println(listaDeConvidados.get(cpfBuscado));
                 } else {
                     System.out.println("O convidado portador do CPF: " + cpfBuscado.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4") + ", não está na lista!");
@@ -119,7 +124,6 @@ public class Main {
     public static void relatorioVip() {
         Scanner scan = new Scanner(System.in);
         System.out.println("\n##### LISTA DE CONVIDADOS VIP #####");
-        System.out.println("");
 
         // armazena se existe convidado vip na lista
         boolean existeConvidadoVipNaLista = listaDeConvidados.values()
